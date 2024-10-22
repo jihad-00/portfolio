@@ -1,0 +1,435 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    text-align: center;
+    overflow-x: hidden;
+    background: linear-gradient(to bottom right, rgb(15, 15, 99), rgb(75, 9, 75));
+}
+
+#title {
+    color: rgba(173, 216, 230, 0.6);
+    text-align: left;
+    padding-top: 20px;
+}
+
+.navbar {
+    padding: 1rem 0;
+}
+
+.nav-item {
+    padding: 0 18px;
+}
+
+.nav-link {
+    font-size: 1rem;
+    font-family: 'Poppins';
+    margin: 0 1rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.nav-link:active {
+    color: rgb(117, 10, 117) !important;
+}
+
+#nav-img {
+    margin-left: 2rem;
+    height: 10rem;
+}
+
+.fa-circle {
+    vertical-align: middle;
+    font-size: 0.2rem;
+    opacity: 0.5;
+}
+
+.big-heading {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    line-height: 1.5;
+    font-weight: bolder;
+    padding-left: 13%;
+    background: linear-gradient(90deg, rgba(173, 216, 230, 1), rgba(117, 10, 117, 1), rgba(173, 9, 85, 1), rgba(50, 20, 147, 1));
+    background-size: 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientAnimation 6s ease infinite;
+}
+
+.title-img {
+    position: relative;
+    animation: float 3s ease-in-out infinite;
+    margin-left: 2rem;
+}
+
+/*************Features***************/
+#features {
+    margin-top: 3%;
+    padding: 7% 15%;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.feature-box {
+    position: relative;
+    overflow: hidden;
+    padding: 4%;
+    height: 250px;
+    border: 4px solid rgba(255, 255, 255, 0.2);
+    border-radius: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease, height 0.5s ease, padding 0.5s ease;
+    margin: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    flex: 1 1 calc(33.33% - 2rem);
+    max-width: calc(33.33% - 2rem);
+}
+
+.feature-img {
+    width: 7rem;
+    background-color: rgba(173, 216, 230, 0.6);
+    border-radius: 20%;
+    transition: width 0.5s ease, transform 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.feature-box.active {
+    height: 350px;
+    padding: 6%;
+}
+
+.features-p {
+    font-family: 'Poppins';
+    color: rgba(173, 216, 230, 0.6);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: font-size 0.5s ease, opacity 0.5s ease, transform 0.5s ease, padding 0.5s ease;
+}
+
+.feature-box.active .features-p {
+    opacity: 1;
+    transform: translateY(0);
+    position: static;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    transition: font-size 0.5s ease;
+}
+
+.feature-box.active .feature-img {
+    transition: transform 0.3s ease width 0.5s ease;
+    width: 6rem;
+}
+
+.feature-heading {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    color: rgba(173, 216, 230, 1);
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    transition: font-size 0.5s ease;
+}
+
+.feature-box.active .feature-heading {
+    font-size: 1.2rem;
+    transition: font-size 0.5s ease;
+}
+
+/******Footer******/
+#footer {
+    padding: 5% 10%;
+    position: relative;
+    height: auto;
+    background-color: rgba(200, 180, 210, 0.7);
+
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-content p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.social {
+    margin: 20px 10px;
+    font-size: 2rem;
+    color: rgba(170, 5, 82, 0.8);
+    animation: gradientTextColor 6s infinite;
+    transition: color 0.3s ease;
+}
+
+#back-to-top {
+    position: fixed;
+    bottom: 10%;
+    right: 5%;
+    color: rgba(173, 216, 230, 0.6);
+    font-size: 24px;
+    text-align: center;
+    line-height: 50px;
+    display: none;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+@media (max-width: 1028px) {
+    .big-heading {
+        font-size: 2rem;
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .feature-box {
+        flex: 1 1 calc(50% - 2rem);
+        max-width: calc(50% - 2rem);
+    }
+
+    .title-img {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .feature-box.active .feature-heading {
+        font-size: 1.5rem;
+    }
+
+    .feature-box.active .features-p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .feature-box {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    .footer-content {
+        padding: 10px;
+    }
+
+    .footer-content p {
+        font-size: 12px;
+        margin-top: 10%;
+    }
+
+    .top,
+    .bottom {
+        display: flex;
+    }
+
+    #footer {
+        padding: 5% 10%;
+    }
+
+    .feature-box.active .feature-heading {
+        font-size: 2rem;
+    }
+
+    .feature-box.active .features-p {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .fa-circle {
+        visibility: hidden;
+    }
+
+    ul {
+        border: 4px solid rgba(255, 255, 255, 0.2);
+        border-radius: 40px;
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .feature-box {
+        min-height: 15rem;
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+#slider {
+    height: 30rem;
+    margin: auto;
+    position: relative;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+}
+
+.slide-track {
+    display: flex;
+    width: calc(250px * 12);
+    /* Adjust this value based on the total number of duplicated slides */
+    animation: scroll 40s linear infinite;
+}
+
+.slide-track:hover {
+    animation-play-state: paused;
+}
+
+.slide {
+    height: 200px;
+    width: 250px;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    perspective: 100px;
+
+}
+
+.slide-img {
+    width: 100%;
+    transition: transform 0.5s;
+    border: 4px solid rgba(255, 255, 255, 0.2);
+    border-radius: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.slide-img:hover {
+    transform: translateZ(10px);
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-250px * 6));
+        /* Adjust this based on the number of unique slides */
+    }
+}
+
+
+
+
+hr {
+    border: none;
+    height: 2px;
+    background: linear-gradient(to right, rgba(173, 216, 230, 1), rgba(117, 10, 117, 1), rgba(173, 9, 85, 1), rgba(50, 20, 147, 1));
+    margin: 2rem auto;
+    border-radius: 20px;
+    width: 70%;
+}
+
+
+.footerNav {
+    text-decoration: none;
+    padding: 10px;
+}
+
+
+/* About Me Section */
+#about-me {
+    background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.1), rgba(173, 216, 230, 0.1));
+    padding: 80px 20px;
+    text-align: center;
+    border: 4px solid rgba(255, 255, 255, 0.2);
+    border-radius: 40px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    margin: 5% auto;
+    width: 80%;
+}
+
+#about-me h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, rgba(173, 216, 230, 1), rgba(117, 10, 117, 1), rgba(173, 9, 85, 1), rgba(50, 20, 147, 1));
+    background-size: 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientAnimation 6s ease infinite;
+    margin-bottom: 30px;
+}
+
+#about-me p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    color: rgba(173, 216, 230, 0.7);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+#about-me .container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+#about-me .intro {
+    font-weight: 500;
+    color: rgba(173, 216, 230, 0.8);
+    margin-bottom: 40px;
+}
+
+
+.about-me-p {
+    margin-bottom: 25px;
+    text-align: left;
+    color: rgba(173, 216, 230, 0.7);
+}
+
+#about-me .cta {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: rgba(180, 13, 180, 0.9);
+    transition: color 0.3s ease;
+}
+
+#about-me a {
+    color: rgba(238, 6, 114, 0.8);
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+#about-me a:hover {
+    color: rgba(173, 9, 85, 1);
+    border-bottom: 2px solid rgba(173, 9, 85, 1);
+}
